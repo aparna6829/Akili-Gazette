@@ -315,8 +315,8 @@ def main():
                         if source not in unique_sources:
                             unique_sources.add(source)
                             document_count += 1
-                            
-                            filename = os.path.basename(source)
+                            filename = os.path.basename(source.replace('\\', '/').split('/')[-1])
+                            # filename = os.path.basename(source)
                             st.write(filename)
                             if "_extracted" in filename:
                                 index = filename.find("_extracted")
