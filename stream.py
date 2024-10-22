@@ -31,7 +31,7 @@ def load_css():
 # Load CSS
 load_css()
 
-img_path = r"static\main-logo.png"
+img_path = r"C:\github\GenAI\Akili-Gazette\static\alkaili_logo.png"
 img_base64 = img_to_base64(img_path)
 
 # Create header container with CSS
