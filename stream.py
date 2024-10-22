@@ -39,7 +39,7 @@ header = st.container()
 header.write(f"""
     <div class='fixed-header'>
         <img src="data:image/png;base64,{img_base64}" class="logo">
-        <h1>Assist Genie</h1>
+        <h1>Akili BotZet</h1>
     </div>
 """, unsafe_allow_html=True)
 
