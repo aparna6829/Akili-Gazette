@@ -255,10 +255,7 @@ def main():
                             ", ".join([f"<a href='https://akilisa.sharepoint.com/sites/SAGazetteHub/shared Documents/Genie Documents_5498/{source}' target='_blank'>{source}</a>" 
                                        for source in message['sources']]) + 
                             "</div>", unsafe_allow_html=True)
-                st.write("<div class='source-links'><b>Sources:</b> " + 
-                            ", ".join([f"<a href='https://akilisa.sharepoint.com/sites/SAGazetteHub/shared Documents/Genie Documents_5498/{source}' target='_blank'>{source}</a>" 
-                                       for source in message['sources']]) + 
-                            "</div>", unsafe_allow_html=True)
+                
     
     query = st.chat_input("Enter Your Query here:")
     
@@ -325,7 +322,7 @@ def main():
                                 filename = filename[:index] + filename[index + len("_extracted"):]
                             filename = filename.replace('.txt', '.pdf')
                             sources.append(filename)
-                            
+                            st.write(source)
                             if document_count == top_n:
                                 break
                 
