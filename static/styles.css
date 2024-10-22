@@ -1,0 +1,19 @@
+.fixed-header {
+    display: flex;
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+    margin-top: -70px;
+}
+
+.logo {
+    height: 50px;
+    margin-left : 450px;
+}
+
+.fixed-header h1 {
+    margin: 0;
+    font-size: 38px;
+    color: #333;
+}
