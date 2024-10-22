@@ -332,7 +332,7 @@ def main():
                                     "<br>".join([f"<a href='https://akilisa.sharepoint.com/sites/SAGazetteHub/shared Documents/Genie Documents_5498/{source}' target='_blank'>{source}</a>" 
                                                 for source in sources]) + 
                                     "</div>", unsafe_allow_html=True)
-
+                    
                 st.session_state.messages.append({"role": "assistant", "content": response, "sources": sources})
 
 if __name__ == '__main__':
