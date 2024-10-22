@@ -202,7 +202,7 @@ def generate_response(es_cloud_id, es_api_key):
     Question: {question}
     Helpful Answer:"""
 
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest", google_api_key=GOOGLE_API_KEY)
+    llm = ChatOpenAI(model="gpt-4o-mini", api_key=st.secrets["OPENAPI_KEY"])
     retriever = vector_db.as_retriever()
 
     QA_CHAIN_PROMPT = PromptTemplate.from_template(prompt_template)
@@ -233,14 +233,14 @@ def main():
 
     Corrected query:
     """
-    spelling_llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest", google_api_key=GOOGLE_API_KEY)
+    spelling_llm = ChatOpenAI(model="gpt-4o", api_key=st.secrets["OPENAPI_KEY"])
     spelling_prompt = ChatPromptTemplate.from_template(spelling_template)
 
     spelling_chain = spelling_prompt | spelling_llm | StrOutputParser()
 
     chain = generate_response(
-        es_cloud_id="e475176dd29c4ba7ac365c0d266f32c2:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJDU2MTU5ZDExNzYzMzQ0ODVhOWViOTdiYmU5YjQwZjhkJDFmOTgxMGUzOTFiMTQ2NmNhY2IxYjZkNDUxYTMzOGI3",
-        es_api_key="RUVhR2xKSUJXZGFucDY4N2NVYTc6QmFyYkt0SkpRdG02Z0xUazZDYlZoUQ==",
+        es_cloud_id=st.secrets["es_cloud_id"],
+        es_api_key=st.secrets["es_api_keya"]
     )
     if 'current_chat' not in st.session_state:
         st.session_state.current_chat = []
