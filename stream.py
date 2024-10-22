@@ -240,7 +240,7 @@ def main():
 
     chain = generate_response(
         es_cloud_id=st.secrets["es_cloud_id"],
-        es_api_key=st.secrets["es_api_keya"]
+        es_api_key=st.secrets["es_api_key"]
     )
     if 'current_chat' not in st.session_state:
         st.session_state.current_chat = []
