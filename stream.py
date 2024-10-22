@@ -322,7 +322,7 @@ def main():
                                 filename = filename[:index] + filename[index + len("_extracted"):]
                             filename = filename.replace('.txt', '.pdf')
                             sources.append(filename)
-                            st.write(source)
+                            st.write(filename)
                             if document_count == top_n:
                                 break
                 
