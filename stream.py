@@ -317,7 +317,7 @@ def main():
                             document_count += 1
                             
                             filename = os.path.basename(source)
-                            print(filename)
+                            st.write(filename)
                             if "_extracted" in filename:
                                 index = filename.find("_extracted")
                                 filename = filename[:index] + filename[index + len("_extracted"):]
