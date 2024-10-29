@@ -42,3 +42,38 @@
 [data-baseweb="tab-highlight"] {
     background-color: white
 }
+/* Style for the prompt buttons */
+.stButton button {
+    width: 100%;
+    background-color: white;  /* Default color */
+    color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;  /* Smooth transition for color change */
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+/* Change color on hover */
+.stButton button:hover {
+    background-color: white !important;
+    color: black;
+    border: 2px solid black;  /* Add a black border on hover */
+}
+
+/* Change color when clicked/active */
+.stButton button:active {
+    background-color: white !important;
+    color: black;
+    border-color: blue;
+    border: 2px solid black;  /* This will keep the blue border when active */
+}
+
+/* Keep the blue color when selected */
+.stButton button:focus {
+    background-color: white !important;
+    color: black;
+    box-shadow: none !important;
+}
