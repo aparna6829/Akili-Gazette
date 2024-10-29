@@ -466,17 +466,17 @@ def main():
                     query = prompt
 
     if query:
-        print(query)
+        # print(query)
         query = spelling_chain.invoke({"question": query})
-        print(query)
+        # print(query)
         if query:
             with st.chat_message("user"):
                 st.markdown(query)
 
-            with st.spinner("Thinking..."):
+            with st.spinner("Processing Your Query..."):
                 st.session_state.messages.append({"role": "user", "content": query})
                 result = chain({"query": query})
-                print(result)
+                # print(result)
                 response = result['result']
                 
                 if any(phrase in response.lower() for phrase in ["don't know", "do not know", "i don't know", "i do not know"]):
