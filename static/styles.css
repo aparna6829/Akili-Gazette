@@ -8,6 +8,7 @@
     top: 0; /* Positions the header at the top of the page */
     width: 100%; /* Ensures the header spans the full width of the viewport */
     z-index: 1000; /* Keeps the header above other elements */
+    margin-left: -50px;
 }
 
 .logo {
