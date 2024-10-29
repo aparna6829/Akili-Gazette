@@ -318,7 +318,7 @@ def main():
         tab1, tab2, tab3, tab4, tab5,tab6,tab7,tab8,tab9,tab10 = st.tabs(["Legal Practitioners", "Government Officials", "Business Compliance Officers", "Journalists and Media Professionals", "Researchers and Academics","NGO Representatives","Procurement Specialists and Contractors","Tax Professionals and Accountants","Environmental Consultants","Trade Union Representatives"])
         
         with tab1:
-            st.markdown("###Legal Practitioners sample prompts")
+            st.markdown("### Legal Practitioners sample prompts")
             regulatory_prompts = [
                 "What are the latest amendments to the Promotion of Access to Information Act?",
                 "Recent case law decisions impacting contract enforcement in South Africa.",
@@ -332,7 +332,7 @@ def main():
                     query = prompt
         
         with tab2:
-            st.markdown("###Government Officials sample prompts")
+            st.markdown("### Government Officials sample prompts")
             permit_prompts = [
                 "Current policies on public service salary adjustments.",
                 "Latest guidelines on municipal financial management.",
