@@ -342,7 +342,7 @@ def main():
         with tab2:
             st.markdown("### Government Officials sample prompts")
             permit_prompts = [
-                "Current policies on public service salary adjustments.",
+                "Recent policies regarding adjustments to public service salaries.",
                 "Latest guidelines on municipal financial management.",
                 "Updates to the National Development Plan initiatives.",
                 "Recent proclamations regarding public holidays.",
