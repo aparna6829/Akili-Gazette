@@ -156,7 +156,7 @@ st.markdown(
         }
         
         .st-b1 {
-            background-color:rgb(242, 242, 242, 0.68);
+            background-color:none;
         }
 
         /* Additional CSS for tabs */
