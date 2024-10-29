@@ -158,6 +158,37 @@ st.markdown(
         .st-b1 {
             background-color:rgb(242, 242, 242, 0.68);
         }
+
+        /* Additional CSS for tabs */
+        .stTabs [data-baseweb="tab-list"] {
+            gap: 8px;
+        }
+
+        .stTabs [data-baseweb="tab"] {
+            height: 50px;
+            white-space: pre-wrap;
+            background-color: #ffffff;
+            border-radius: 4px;
+            color: #000000;
+            padding: 8px 16px;
+        }
+
+        .stTabs [data-baseweb="tab-list"] button[aria-selected="true"] {
+            background-color: #0066cc;
+            color: #ffffff;
+        }
+
+        .sidebar-prompt {
+            margin-bottom: 8px;
+            padding: 8px;
+            border-radius: 4px;
+            background-color: #f0f2f6;
+            cursor: pointer;
+        }
+
+        .sidebar-prompt:hover {
+            background-color: #e0e2e6;
+        }
     </style>
     """,
     unsafe_allow_html=True
@@ -216,13 +247,12 @@ def generate_response(es_cloud_id, es_api_key):
     - Do not mention source document names
     - Keep responses focused and relevant
     - Maintain professional language
-
+    finally provide the response in a points wise.
     Context: {context}
 
     Question: {question}
 
     Helpful Answer:"""
-
 
     llm = ChatOpenAI(model="gpt-4o-mini", api_key=st.secrets["OPENAPI_KEY"])
     retriever = vector_db.as_retriever()
@@ -264,6 +294,7 @@ def main():
         es_cloud_id=st.secrets["es_cloud_id"],
         es_api_key=st.secrets["es_api_key"]
     )
+
     if 'current_chat' not in st.session_state:
         st.session_state.current_chat = []
     if "messages" not in st.session_state:
@@ -277,37 +308,79 @@ def main():
                             ", ".join([f"<a href='https://akilisa.sharepoint.com/sites/SAGazetteHub/shared Documents/Genie Documents_5498/{source}' target='_blank'>{source}</a>" 
                                        for source in message['sources']]) + 
                             "</div>", unsafe_allow_html=True)
-                
     
     query = st.chat_input("Enter Your Query here:")
     
     with st.sidebar:
-        st.subheader("Here are some sample prompts:👇🏼")
-
-        sample_prompts = [
-            "How do I provide feedback on the proposed import/export law amendments?",
-            "How do I comply with new vehicle registration regulations?",
-            "What is the publication date of the government gazette in Parliament concerning the Department of Labour?",
-            "Who are the members of the Executive Council responsible for Cooperative Governance and Traditional Affairs?",
-            "What changes have been made to compliance in health and safety regulations?",
-            "Can you summarise government announcements related to healthcare?",
-            "What are the compliance requirements for environmental impact assessments?",
-            "How does this law immigration amendment bill 2018 affect my rights as a citizen?",
-            "Are there any consultations related to climate change policy?",
-            "How does the new procurement regulation impact departmental purchasing?",
-            "Where can I find the full route descriptions of the submitted permit applications?",
-            "What information is included in an application for a cross-border transport permit?",
-            "What actions have been taken by the Minister of Finance regarding the delegation of powers and forfeiture of funds, and what are the specifics of the forfeiture decision?",
-            "What is the proposed amendment to the Civil Aviation Technical Standards regarding Remotely Piloted Aircraft Systems, and how can interested parties submit comments?",
-            "What are the details of the recent transport permit applications for cross-border services between South Africa and Zimbabwe?",
-            "What are the key components and goals of the White Paper on Conservation and Sustainable Use of South Africa's Biodiversity approved by Cabinet on 29 March 2023?",
-            "When will the new scale of fees for medical aid under section 76 of the Compensation for Occupational Injuries and Diseases Act take effect?",
-            "Who is the Minister of Employment and Labour who gave notice regarding the scale of fees under the Compensation for Occupational Injuries and Diseases Act?"
-        ]
-
-        for prompt in sample_prompts:
-            if st.button(prompt):
-                query = prompt
+        st.subheader("Sample Prompts by Category:👇🏼")
+        
+        # Create tabs for different categories
+        tab1, tab2, tab3, tab4, tab5 = st.tabs(["Regulations", "Permits", "Policy Changes", "Public Feedback", "Government Updates"])
+        
+        with tab1:
+            st.markdown("### Regulatory Queries")
+            regulatory_prompts = [
+                "How do I comply with new vehicle registration regulations?",
+                "What changes have been made to compliance in health and safety regulations?",
+                "What are the compliance requirements for environmental impact assessments?",
+                "What is the proposed amendment to the Civil Aviation Technical Standards regarding Remotely Piloted Aircraft Systems?",
+                "When will the new scale of fees for medical aid under section 76 take effect?"
+            ]
+            for prompt in regulatory_prompts:
+                if st.button(prompt, key=f"reg_{prompt}"):
+                    query = prompt
+        
+        with tab2:
+            st.markdown("### Permit Information")
+            permit_prompts = [
+                "Where can I find the full route descriptions of the submitted permit applications?",
+                "What information is included in an application for a cross-border transport permit?",
+                "What are the details of the recent transport permit applications for cross-border services?",
+                "How do I apply for a business permit under the new regulations?",
+                "What are the requirements for permit renewals?"
+            ]
+            for prompt in permit_prompts:
+                if st.button(prompt, key=f"permit_{prompt}"):
+                    query = prompt
+        
+        with tab3:
+            st.markdown("### Policy Changes")
+            policy_prompts = [
+                "What are the key components of the White Paper on Conservation and Sustainable Use?",
+                "How does the new procurement regulation impact departmental purchasing?",
+                "What actions have been taken by the Minister of Finance regarding delegation of powers?",
+                "Are there any consultations related to climate change policy?",
+                "How does the immigration amendment bill 2018 affect citizen rights?"
+            ]
+            for prompt in policy_prompts:
+                if st.button(prompt, key=f"policy_{prompt}"):
+                    query = prompt
+        
+        with tab4:
+            st.markdown("### Public Participation")
+            feedback_prompts = [
+                "How do I provide feedback on the proposed import/export law amendments?",
+                "What is the process for submitting public comments on new regulations?",
+                "Where can I find information about upcoming public consultations?",
+                "How can I participate in policy development processes?",
+                "What are the deadlines for submitting feedback on current proposals?"
+            ]
+            for prompt in feedback_prompts:
+                if st.button(prompt, key=f"feedback_{prompt}"):
+                    query = prompt
+        
+        with tab5:
+            st.markdown("### Government Announcements")
+            announcement_prompts = [
+                "What is the publication date of the government gazette in Parliament?",
+                "Who are the members of the Executive Council for Cooperative Governance?",
+                "Can you summarise government announcements related to healthcare?",
+                "Who is the Minister of Employment and Labour who gave notice?",
+                "What are the latest updates from the Department of Labour?"
+            ]
+            for prompt in announcement_prompts:
+                if st.button(prompt, key=f"announce_{prompt}"):
+                    query = prompt
 
     if query:
         print(query)
@@ -338,8 +411,6 @@ def main():
                             unique_sources.add(source)
                             document_count += 1
                             filename = os.path.basename(source.replace('\\', '/').split('/')[-1])
-                            # filename = os.path.basename(source)
-                            # st.write(filename)
                             if "_extracted" in filename:
                                 index = filename.find("_extracted")
                                 filename = filename[:index] + filename[index + len("_extracted"):]
