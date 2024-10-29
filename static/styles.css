@@ -4,7 +4,10 @@
     background-color: #007bff;
     padding: 10px;
     border-bottom: 1px solid #dee2e6;
-    margin-top: -70px;
+    position: fixed; /* Makes the header fixed at the top */
+    top: 0; /* Positions the header at the top of the page */
+    width: 100%; /* Ensures the header spans the full width of the viewport */
+    z-index: 1000; /* Keeps the header above other elements */
 }
 
 .logo {
@@ -15,7 +18,7 @@
 .fixed-header h1 {
     margin: 0;
     font-size: 38px;
-    color: #333;
+    color: white;
 }
 .st-emotion-cache-jkfxgf p {
     word-break: break-word;
@@ -23,7 +26,7 @@
     font-size: 14px;
     width: 95px;
     line-height: normal;
-}
+} 
 .st-emotion-cache-12h5x7g p {
     word-break: break-word;
     margin-bottom: 0px;
@@ -34,4 +37,7 @@
     height: 100%;
     width: 350px;
     overflow: overlay;
+}
+[data-baseweb="tab-highlight"] {
+    background-color: white
 }

@@ -331,7 +331,7 @@ def main():
                 "What are the latest amendments to the Promotion of Access to Information Act?",
                 "Recent case law decisions impacting contract enforcement in South Africa.",
                 "Updates on regulations governing electronic signatures.",
-                "Has there been any change to the Intellectual Property Laws Amendment Act?",
+                "How is the SKAO Intellectual Property Policy approved and amended?",
                 "Newly published legal notices affecting maritime law.",
 
             ]
