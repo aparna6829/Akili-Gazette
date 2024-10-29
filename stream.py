@@ -247,7 +247,7 @@ def generate_response(es_cloud_id, es_api_key):
     - Do not mention source document names
     - Keep responses focused and relevant
     - Maintain professional language
-    finally provide the response in a points wise.if ypu don't known the answer just say i don't known don't provide teh wrong responses which is not in teh documnets.
+    finally provide the response in a points wise.Only respond to specific, relevant questions. If the answer is unknown, simply respond with, 'I don't know.' Do not give inaccurate responses or speculate. Present your answers in bullet points for clarity."
     Context: {context}
 
     Question: {question}
