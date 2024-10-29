@@ -315,68 +315,143 @@ def main():
         st.subheader("Sample Prompts by Category:👇🏼")
         
         # Create tabs for different categories
-        tab1, tab2, tab3, tab4, tab5 = st.tabs(["Regulations", "Permits", "Policy Changes", "Public Feedback", "Government Updates"])
+        tab1, tab2, tab3, tab4, tab5,tab6,tab7,tab8,tab9,tab10 = st.tabs(["Legal Practitioners", "Government Officials", "Business Compliance Officers", "Journalists and Media Professionals", "Researchers and Academics","NGO Representatives","Procurement Specialists and Contractors","Tax Professionals and Accountants","Environmental Consultants","Trade Union Representatives"])
         
         with tab1:
-            st.markdown("### Regulatory Queries")
+            st.markdown("###Legal Practitioners sample prompts")
             regulatory_prompts = [
-                "How do I comply with new vehicle registration regulations?",
-                "What changes have been made to compliance in health and safety regulations?",
-                "What are the compliance requirements for environmental impact assessments?",
-                "What is the proposed amendment to the Civil Aviation Technical Standards regarding Remotely Piloted Aircraft Systems?",
-                "When will the new scale of fees for medical aid under section 76 take effect?"
+                "What are the latest amendments to the Promotion of Access to Information Act?",
+                "Recent case law decisions impacting contract enforcement in South Africa.",
+                "Updates on regulations governing electronic signatures.",
+                "Has there been any change to the Intellectual Property Laws Amendment Act?",
+                "Newly published legal notices affecting maritime law.",
+
             ]
             for prompt in regulatory_prompts:
                 if st.button(prompt, key=f"reg_{prompt}"):
                     query = prompt
         
         with tab2:
-            st.markdown("### Permit Information")
+            st.markdown("###Government Officials sample prompts")
             permit_prompts = [
-                "Where can I find the full route descriptions of the submitted permit applications?",
-                "What information is included in an application for a cross-border transport permit?",
-                "What are the details of the recent transport permit applications for cross-border services?",
-                "How do I apply for a business permit under the new regulations?",
-                "What are the requirements for permit renewals?"
+                "Current policies on public service salary adjustments.",
+                "Latest guidelines on municipal financial management.",
+                "Updates to the National Development Plan initiatives.",
+                "Recent proclamations regarding public holidays.",
+                "Changes in intergovernmental relations legislation."
+
             ]
             for prompt in permit_prompts:
                 if st.button(prompt, key=f"permit_{prompt}"):
                     query = prompt
         
         with tab3:
-            st.markdown("### Policy Changes")
+            st.markdown("### Business Compliance Officers sample prompts")
             policy_prompts = [
-                "What are the key components of the White Paper on Conservation and Sustainable Use?",
-                "How does the new procurement regulation impact departmental purchasing?",
-                "What actions have been taken by the Minister of Finance regarding delegation of powers?",
-                "Are there any consultations related to climate change policy?",
-                "How does the immigration amendment bill 2018 affect citizen rights?"
+                "New compliance requirements under the Consumer Protection Act.",
+                "Updates on anti-money laundering regulations.",
+                "Changes to the Occupational Health and Safety Act affecting manufacturing.",
+                "Latest B-BBEE compliance codes for medium enterprises.",
+                "Environmental compliance deadlines for emissions reporting.",
+
             ]
             for prompt in policy_prompts:
                 if st.button(prompt, key=f"policy_{prompt}"):
                     query = prompt
         
         with tab4:
-            st.markdown("### Public Participation")
+            st.markdown("### Journalists and Media Professionals sample prompts")
             feedback_prompts = [
-                "How do I provide feedback on the proposed import/export law amendments?",
-                "What is the process for submitting public comments on new regulations?",
-                "Where can I find information about upcoming public consultations?",
-                "How can I participate in policy development processes?",
-                "What are the deadlines for submitting feedback on current proposals?"
+                "Announcements on upcoming parliamentary sessions.",
+                "Recent government responses to public protests.",
+                "Updates on legislation affecting freedom of the press.",
+                "Notices about changes in broadcasting regulations.",
+                "Information on newly appointed cabinet ministers."
+
             ]
             for prompt in feedback_prompts:
                 if st.button(prompt, key=f"feedback_{prompt}"):
                     query = prompt
         
         with tab5:
-            st.markdown("### Government Announcements")
+            st.markdown("### Researchers and Academics sample prompts")
             announcement_prompts = [
-                "What is the publication date of the government gazette in Parliament?",
-                "Who are the members of the Executive Council for Cooperative Governance?",
-                "Can you summarise government announcements related to healthcare?",
-                "Who is the Minister of Employment and Labour who gave notice?",
-                "What are the latest updates from the Department of Labour?"
+                "Statistical releases on national unemployment rates.",
+                "Historical data on education policy reforms since 2000.",
+                "Recent government reports on climate change impact.",
+                "Updates on research funding opportunities from the Department of Science and Innovation.",
+                "Analysis of urbanization trends published in the gazette."
+
+            ]
+            for prompt in announcement_prompts:
+                if st.button(prompt, key=f"announce_{prompt}"):
+                    query = prompt
+        
+        with tab6:
+            st.markdown("### NGO Representatives sample prompts")
+            announcement_prompts = [
+                "Latest policies affecting non-profit registration.",
+                "Updates on social grant distributions.",
+                "Government notices on human trafficking legislation.",
+                "Announcements of public participation meetings on environmental issues.",
+                "Changes to laws impacting refugee rights."
+
+            ]
+            for prompt in announcement_prompts:
+                if st.button(prompt, key=f"announce_{prompt}"):
+                    query = prompt
+                    
+        with tab7:
+            st.markdown("### Procurement Specialists and Contractors sample prompts")
+            announcement_prompts = [
+                "New tender opportunities in the healthcare sector.",
+                "Updates to procurement policies under the Public Finance Management Act.",
+                "Notices of awarded contracts for infrastructure projects.",
+                "Changes in supplier accreditation requirements.",
+                "Upcoming bids for renewable energy projects.",
+
+            ]
+            for prompt in announcement_prompts:
+                if st.button(prompt, key=f"announce_{prompt}"):
+                    query = prompt
+        
+        with tab8:
+            st.markdown("### Tax Professionals and Accountants sample prompts")
+            announcement_prompts = [
+                "Recent amendments to the Income Tax Act.",
+                "Updates on tax compliance regulations for trusts.",
+                "Changes in customs and excise duties announced.",
+                "Notices about tax relief measures for businesses.",
+                "New SARS guidelines on cryptocurrency taxation."
+
+            ]
+            for prompt in announcement_prompts:
+                if st.button(prompt, key=f"announce_{prompt}"):
+                    query = prompt
+        with tab9:
+            st.markdown("### Environmental Consultants sample prompts")
+            announcement_prompts = [
+                "Updates on environmental impact assessment regulations.",
+                "New protected areas declared by the government.",
+                "Changes to the National Water Act affecting resource management.",
+                "Latest waste management policies and compliance deadlines.",
+                "Announcements on air quality standards revisions.",
+
+            ]
+            for prompt in announcement_prompts:
+                if st.button(prompt, key=f"announce_{prompt}"):
+                    query = prompt
+                    
+                    
+        with tab10:
+            st.markdown("### Trade Union Representatives sample prompts")
+            announcement_prompts = [
+               "Adjustments to the national minimum wage.",
+                "Updates on labor law amendments affecting collective bargaining.",
+                "Notices regarding changes to worker safety regulations.",
+                "Recent developments in employment equity legislation.",
+                "Government responses to proposed industrial action."
+
             ]
             for prompt in announcement_prompts:
                 if st.button(prompt, key=f"announce_{prompt}"):
