@@ -251,11 +251,6 @@ def generate_response(es_cloud_id, es_api_key):
         Respond only to specific, relevant questions. If the answer is unknown, reply with “I don’t know” without speculation.
 
 
-
-
-
-
-
     Context: {context}
 
     Question: {question}
